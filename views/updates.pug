@@ -8,6 +8,8 @@ html
         link(rel="stylesheet", href="/css/style.css")
     body    
         h1 #{title}
+        //- link to home route
+        a(href="/") Return to the homepage
         form(action="/update-cobj" method="post")
             label(for="name") Name
             input(type="text" name="name" id="name" required)
