@@ -13,8 +13,12 @@ html
         form(action="/update-cobj" method="post")
             label(for="name") Name
             input(type="text" name="name" id="name" required)
+            //- select with options magic, fantasy, fiction, realism
             label(for="genre") Genre
-            input(type="text" name="genre" id="genre" required)
+            select(name="genre" id="genre" required)
+                option(value="fantasy") Fantasy
+                option(value="fiction") Fiction
+                option(value="realism") Realism
             label(for="author") Author
             input(type="text" name="author" id="author" required)
             label(for="score") Score
