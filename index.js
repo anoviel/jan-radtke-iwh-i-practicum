@@ -40,6 +40,15 @@ app.post("/update-cobj", async (req, res) => {
 	};
 	console.log("object data", update);
 
+	const books = 'https://api.hubspot.com/crm/v3/objects/2-39898699';
+    try {
+        const resp = await axios.post(books, update);
+        const data = resp.data.results;
+        console.log("data", data);
+    } catch (error) {
+        console.error(error);
+    }
+
 	return res.redirect("/update-cobj");
 });
 
