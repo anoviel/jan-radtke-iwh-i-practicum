@@ -2,25 +2,25 @@
 
 doctype html
 html 
-    head 
-        title= `${title}`
-        meta(name="viewport" content="width=device-width, initial-scale=1")
-        link(rel="stylesheet", href="/css/style.css")
-    body    
-        h1 #{title}
-        //- link to home route
-        a(href="/") Return to the homepage
-        form(action="/update-cobj" method="post")
-            label(for="name") Name
-            input(type="text" name="name" id="name" required)
-            //- select with options magic, fantasy, fiction, realism
-            label(for="genre") Genre
-            select(name="genre" id="genre" required)
-                option(value="fantasy") Fantasy
-                option(value="fiction") Fiction
-                option(value="realism") Realism
-            label(for="author") Author
-            input(type="text" name="author" id="author" required)
-            label(for="score") Score
-            input(type="number" name="score" id="score" required)
-            button(type="submit") Submit
+	head 
+		title= `${title}`
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		link(rel="stylesheet", href="/css/style.css")
+	body
+		h1 #{title}
+		div.content
+			a(href="/") Return to the homepage
+			form(action="/update-cobj" method="post")
+				label(for="name") Name
+				input(type="text" name="name" id="name" required)
+				//- select with options magic, fantasy, fiction, realism
+				label(for="genre") Genre
+				select(name="genre" id="genre" required)
+					option(value="fantasy") Fantasy
+					option(value="fiction") Fiction
+					option(value="realism") Realism
+				label(for="author") Author
+				input(type="text" name="author" id="author" required)
+				label(for="score") Score
+				input(type="number" name="score" id="score" required)
+				button(type="submit") Submit
