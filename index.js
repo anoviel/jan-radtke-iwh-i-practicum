@@ -17,6 +17,19 @@ axios.defaults.headers.common["Content-Type"] = "application/json";
 
 // * Code for Route 1 goes here
 app.get("/", async (req, res) => {
+	const books_api_url = "https://api.hubspot.com/crm/v3/objects/2-39898699";
+	const params = {
+		properties: ["name", "genre", "author", "score" ].join(","), 
+	};
+
+	try {
+		const resp = await axios.get(books_api_url, { params: params });
+		
+		const data = resp.data.results;
+		console.log("crm data", data);
+	} catch (error) {
+		console.error(error);
+	}
 	return res.render("homepage", { title: "Home | HubSpot APIs" });
 });
 
