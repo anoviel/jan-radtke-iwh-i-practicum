@@ -10,6 +10,8 @@ app.use(express.json());
 
 // * Please DO NOT INCLUDE the private app access token in your repo. Don't do this practicum in your normal account.
 const PRIVATE_APP_ACCESS = process.env.PRIVATE_APP_ACCESS;
+axios.defaults.headers.common["Authorization"] = `Bearer ${PRIVATE_APP_ACCESS}`;
+axios.defaults.headers.common["Content-Type"] = "application/json";
 
 // TODO: ROUTE 1 - Create a new app.get route for the homepage to call your custom object data. Pass this data along to the front-end and create a new pug template in the views folder.
 
@@ -37,7 +39,7 @@ app.post("/update-cobj", async (req, res) => {
 		properties: { name, genre, author, score },
 	};
 	console.log("object data", update);
-	
+
 	return res.redirect("/update-cobj");
 });
 
