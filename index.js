@@ -21,16 +21,16 @@ app.get("/", async (req, res) => {
 	const params = {
 		properties: ["name", "genre", "author", "score" ].join(","), 
 	};
-
+	let data = [];
 	try {
 		const resp = await axios.get(books_api_url, { params: params });
 		
-		const data = resp.data.results;
+		data = resp.data.results;
 		console.log("crm data", data);
 	} catch (error) {
 		console.error(error);
 	}
-	return res.render("homepage", { title: "Home | HubSpot APIs" });
+	return res.render("homepage", { title: "Home | HubSpot APIs", books: data });
 });
 
 // TODO: ROUTE 2 - Create a new app.get route for the form to create or update new custom object data. Send this data along in the next route.
