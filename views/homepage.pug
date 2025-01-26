@@ -2,12 +2,26 @@
 
 doctype html
 html 
-    head 
-        title= `${title}`
-        meta(name="viewport" content="width=device-width, initial-scale=1")
-        link(rel="stylesheet", href="/css/style.css")
-    body    
-        h1 Home
-        p Welcome to the Integrating With HubSpot I: Foundations Practicum
-        //- link to cupdate-cobj route
-        a(href="/update-cobj") Update Custom Object
+	head 
+		title= `${title}`
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		link(rel="stylesheet", href="/css/style.css")
+	body
+		h1 Custom Object Table
+		div.content
+			a(href="/update-cobj") Add/Update this table
+			//- table for custom object data inclusive custom properties name, genre, author, score
+			table
+				thead
+					tr
+						th.bold.bg-red Name
+						th.bold.bg-red Genre
+						th.bold.bg-red Author
+						th.bold.bg-red Score
+				tbody
+					each book in books
+						tr
+							td= book.properties.name
+							td= book.properties.genre
+							td= book.properties.author
+							td= book.properties.score
